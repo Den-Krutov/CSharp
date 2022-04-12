@@ -8,8 +8,8 @@ namespace Den.Class
     {
         static void Main(string[] args)
         {
-            var animal1 = new Predator("Wolf",3);
-            var animal2 = new Herbivore("Cow",2);
+            var animal1 = new Predator("Wolf", 3);
+            var animal2 = new Herbivore("Cow", 2);
             var animal3 = new Predator("Bear", 3);
             var animal4 = new Herbivore("Sheep", 1);
             Console.WriteLine(animal1);
@@ -35,6 +35,15 @@ namespace Den.Class
             animal6.Run();
             Console.WriteLine(animal1);
             Console.WriteLine(animal1.Hunt());
+            // TODO: Сгенерировать исключение
+            //try
+            //{
+            //    var animal7 = new Predator(Console.ReadLine());
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //}
             Console.ReadKey();
         }
     }

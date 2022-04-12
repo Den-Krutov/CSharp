@@ -42,6 +42,14 @@ namespace Den.Class
         {
             MeatHungry = 0;
         }
+        public Predator(string name) : base(name)
+        {
+
+        }
+        public Predator(int days) : base(days)
+        {
+
+        }
         public override void Live()
         {
             base.Live();

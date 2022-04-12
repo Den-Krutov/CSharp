@@ -9,6 +9,16 @@
             Name = "Unknown";
             Days = 0;
         }
+        public Animal(string name)
+        {
+            Name=name;
+            Days = 0;
+        }
+        public Animal(int days)
+        {
+            Name="Unknown";
+            Days = days;
+        }
         public Animal(string name, int days)
         {
             Name = name;
@@ -22,7 +32,6 @@
         {
             Days += days;
         }
-
         public override string ToString()
         {
             return $"{Name.ToString()}({Days.ToString()})";

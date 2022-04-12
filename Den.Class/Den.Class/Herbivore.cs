@@ -30,6 +30,16 @@ namespace Den.Class
         {
             GrassHungry = 0;
         }
+
+        public Herbivore(string name) : base(name)
+        {
+
+        }
+        public Herbivore(int days) : base(days)
+        {
+
+        }
+
         protected int HerbivoreHungryFibonacci(int value)
         {
             if (value == 0) return 0;
