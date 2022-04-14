@@ -4,6 +4,8 @@ namespace Den.Delegate
 {
     internal class Person
     {
+        public delegate void HomeHundler(string message);
+        public event HomeHundler GoToWork;
         public string Name { get; set; }
         public Person(string name) { Name = name; }
         public void GetOutBed()
@@ -28,11 +30,17 @@ namespace Den.Delegate
         }
         public bool DoWork(bool check)
         {
+            GoToWork?.Invoke("Дом закрыт");
             Console.WriteLine($"{Name} поработал");
             if (check)
-                return true; 
+            {
+                GoToWork?.Invoke("Дом открыт");
+                return true;
+            }
             else
+            { 
                 return false;
+            }
         }
     }
 }
