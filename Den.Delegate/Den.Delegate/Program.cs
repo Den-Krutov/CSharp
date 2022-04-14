@@ -9,6 +9,13 @@ namespace Den.Delegate
         {
             Console.WriteLine(message);
         }
+        static void DisplayMessage(object person, EventArgs e)
+        {
+            if (person is Person)
+            {
+                Console.WriteLine($"Что то случилось c хозяином-{((Person)person).Name}!"); ;
+            }
+        }
         static void DisplayBlueMessage(string message) 
         {
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -20,6 +27,7 @@ namespace Den.Delegate
             Person person = new Person("Даня");
             person.GoToWork += DisplayMessage;
             person.GoToWork += DisplayBlueMessage;
+            person.SleepToWork += DisplayMessage;
             Morning morningPerson = null;
             morningPerson?.Invoke();
             morningPerson += person.GetOutBed;
@@ -27,7 +35,7 @@ namespace Den.Delegate
             morningPerson += person.BrushTeeth;
             morningPerson?.Invoke();
             Predicate<bool> work = new Predicate<bool>(person.DoWork);
-            if (work(true))
+            if (work(false))
             {
                 Console.WriteLine("Работа завершена");
                 Action eveningPerson = null;

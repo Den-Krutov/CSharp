@@ -6,6 +6,7 @@ namespace Den.Delegate
     {
         public delegate void HomeHundler(string message);
         public event HomeHundler GoToWork;
+        public event EventHandler SleepToWork;
         public string Name { get; set; }
         public Person(string name) { Name = name; }
         public void GetOutBed()
@@ -38,7 +39,9 @@ namespace Den.Delegate
                 return true;
             }
             else
-            { 
+            {
+                var args=new EventArgs();
+                SleepToWork?.Invoke(this, args);
                 return false;
             }
         }
